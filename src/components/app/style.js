@@ -9,7 +9,7 @@ export const PageWrapper = styled.div`
         "header header"
         "nav main"
         "footer footer";
-    grid-template-rows: 50px 1fr 45px;
+    grid-template-rows: 60px 1fr 45px;
     grid-template-columns: 15% 1fr;
     grid-gap: 5px;
     
@@ -17,10 +17,11 @@ export const PageWrapper = styled.div`
 
 export const StyledHeader = styled.header`
     grid-area: header;
-    padding: 10px;
     border: 1px solid white;
     border-radius: 5px;
-
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
 `;
 
 export const StyledMain = styled.main`
