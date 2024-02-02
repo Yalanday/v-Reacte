@@ -1,12 +1,14 @@
-import { StyledApp } from "./style";
+import { PageWrapper, StyledFooter, StyledHeader, StyledMain, StyledNavWrapper } from "./style";
 
 function App() {
     return (
-        <StyledApp>
-        header
-        main
-        footer
-        </StyledApp>
+        <PageWrapper>
+            <StyledHeader>Header</StyledHeader>
+            <StyledMain>
+                <StyledNavWrapper>Nav</StyledNavWrapper>
+            </StyledMain>
+            <StyledFooter>Footer</StyledFooter>
+        </PageWrapper>
     )
 }
 
