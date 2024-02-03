@@ -1,12 +1,17 @@
-import { StyledNav } from "./style";
+import { StyledNav, StyledLink } from "./style";
+ 
 
 function Nav() {
     return (
         <StyledNav>
             <ul>
-                <li>Моя страница</li>
+                <li>                    
+                <StyledLink to="/my-page">Моя страница</StyledLink>
+                </li>
                 <li>Сообщения</li>
-                <li>Галлерея компонентов</li>
+                <li>
+                    <StyledLink to="/examples">Галлерея компонентов</StyledLink>
+                </li>
                 <li>Особенности хуков</li>
                 <li>Друзья</li>
             </ul>

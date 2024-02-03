@@ -9,7 +9,7 @@ export const PageWrapper = styled.div`
         "header header"
         "nav main"
         "footer footer";
-    grid-template-rows: 60px 1fr 45px;
+    grid-template-rows: 60px 1fr 70px;
     grid-template-columns: 15% 1fr;
     grid-gap: 5px;
     

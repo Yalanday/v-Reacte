@@ -3,7 +3,7 @@ import LogoImage from '/src/assets/react.svg';
 
 function Logo() {
     return (
-        <StyledLogo href="#">
+        <StyledLogo to="/">
             В<img src={LogoImage} alt="Логотип" />Reacte
         </StyledLogo>
     )
