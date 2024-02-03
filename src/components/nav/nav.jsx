@@ -8,9 +8,11 @@ function Nav() {
                 <li>                    
                 <StyledLink to="/my-page">Моя страница</StyledLink>
                 </li>
-                <li>Сообщения</li>
                 <li>
-                    <StyledLink to="/examples">Галлерея компонентов</StyledLink>
+                <StyledLink to="/dialogs">Сообщения</StyledLink>
+                </li>
+                <li>
+                    <StyledLink to="/examples">Мои компоненты</StyledLink>
                 </li>
                 <li>Особенности хуков</li>
                 <li>Друзья</li>
