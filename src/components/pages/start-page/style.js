@@ -12,11 +12,11 @@ export const StyledStartPages = styled.div`
 `;
 
 export const Text = styled.span`
-    font-size: 14vw;
+    font-size: 9vw;
 
     @media screen and (min-width: 2600px) {
    
-     font-size: 11vw;
+     font-size: 9vw;
   }
   
 `;
