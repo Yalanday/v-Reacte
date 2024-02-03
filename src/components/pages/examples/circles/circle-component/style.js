@@ -3,17 +3,15 @@ import styled from "styled-components";
 export const StyledCircle = styled.div`
     margin: 20px;
     color: #ffffff;
-    // min-width: 20px;
-    // min-height: 20px;
     max-width: 250px;
-    max-heigth: 250px;
     border: 2px solid red;
     border-radius: 50%;  
 `;
 
 export const StyledButton = styled.button`
     width: 50xp;
-    bacground-color: green;    
+    font-size: 34px;
+    padding: 10px;
 `;
 
 export const StyledValue = styled.strong`

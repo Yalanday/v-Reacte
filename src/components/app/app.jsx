@@ -20,10 +20,10 @@ function App() {
                     <Routes>
                         <Route path='/' Component={StartPage} />
                         <Route path='/my-page' Component={MyPage} />
-                        <Route path='/examples' Component={Examples} />
+                        <Route exact path='/examples/*' Component={Examples} />
                     </Routes>
                 </StyledMain>
-                <StyledFooter>Footer</StyledFooter>
+                <StyledFooter>ТУТ БУДЕТ МОДНЫЙ ФУТЕР</StyledFooter>
             </PageWrapper>
         </BrowserRouter>
     )

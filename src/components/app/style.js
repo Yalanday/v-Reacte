@@ -41,4 +41,6 @@ export const StyledFooter = styled.footer`
     grid-area: footer;
     border: 1px solid white;
     border-radius: 5px;
+    font-size: 40px;
+    text-align: center;
 `;
