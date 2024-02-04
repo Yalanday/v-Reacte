@@ -19,12 +19,12 @@ let messages = <Routes>{props.map(item =>
     </MessagesList>} />
 )}</Routes>;
 
-function RenderMessage() {
+function RenderMessages() {
     return (
-
-       <MessagesWrapper> { messages } </MessagesWrapper>
-
+        <MessagesWrapper>
+            {messages}
+        </MessagesWrapper>
     )
 }
 
-export default RenderMessage;
+export default RenderMessages;

@@ -13,8 +13,6 @@ function Examples() {
                 <Route path='/task-wrapper' Component={TaskWrapper} />
                 <Route path='/circle' Component={CircleWrapper} />
             </Routes>
-
-            {/* <TaskWrapper /> */}
             <ButtonExample>Скачать код</ButtonExample>
         </StyledExample>
     )
