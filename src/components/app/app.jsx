@@ -21,8 +21,8 @@ function App() {
                     <Routes>
                         <Route path='/' Component={StartPage} />
                         <Route path='/my-page' Component={MyPage} />
-                        <Route path='/dialogs' Component={Dialogs} />
-                        <Route path='/examples/*' Component={Examples} />
+                        <Route exact path='/dialogs/*' Component={Dialogs} />
+                        <Route exact path='/examples/*' Component={Examples} />
                     </Routes>
                 </StyledMain>
                 <StyledFooter>ТУТ БУДЕТ МОДНЫЙ ФУТЕР</StyledFooter>

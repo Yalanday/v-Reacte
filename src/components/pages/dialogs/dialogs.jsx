@@ -1,27 +1,42 @@
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
     DialogsWrapper, DialogsList, DialogsItem, MessagesWrapper,
-    MessagesList, MessagesItem, MessageInputField, MessagesubmitButton
+    InputButtonWrapper, MessageInputField, MessagesubmitButton
 } from './style';
+import props from "/src/mocks/dialogsData";
+import RenderMessage from './messageItem';
+
+props.propTypes = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    list: PropTypes.array.isRequired
+}
+
+let dialogList = props.map(prop =>
+    <DialogsItem key={prop.id}>
+        <Link to={`/dialogs/${prop.id}`}>{prop.name}</Link>
+    </DialogsItem>
+);
 
 function Dialogs() {
+
     return (
         <DialogsWrapper>
+
             <DialogsList>
-                <DialogsItem>Petr</DialogsItem>
-                <DialogsItem>Makar</DialogsItem>
-                <DialogsItem>Zahar</DialogsItem>
-                <DialogsItem>Abubakar</DialogsItem>
+                {dialogList}
             </DialogsList>
-            <MessagesWrapper>
-                <MessagesList>
-                    <MessagesItem>Как дела?</MessagesItem>
-                    <MessagesItem>Сойдет. Сам как?</MessagesItem>
-                    <MessagesItem>Тоже ничего</MessagesItem>
-                    <MessagesItem>ПОнятно</MessagesItem>
-                </MessagesList>
+
+
+            <RenderMessage />
+
+
+            <InputButtonWrapper>
                 <MessageInputField placeholder='Введите ваше сообщение'></MessageInputField>
-                <MessagesubmitButton>Отправить</MessagesubmitButton>
-            </MessagesWrapper>
+                <MessagesubmitButton />
+            </InputButtonWrapper>
         </DialogsWrapper>
     )
 }
