@@ -56,7 +56,6 @@ export const MessagesWrapper = styled.div`
     grid-area: messages;
     display: flex;
     align-items: end;
-
 `;
 
 export const MessagesList = styled.ul`
