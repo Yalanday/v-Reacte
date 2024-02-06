@@ -69,6 +69,7 @@ export const MessagesList = styled.ul`
 
 export const MessagesItem = styled.li`
     color: aqua;
+    word-wrap: break-word;
 `;
 
 export const InputButtonWrapper = styled.div`

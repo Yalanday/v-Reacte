@@ -6,9 +6,9 @@ function RenderMessages( { dialogsData}) {
 
     RenderMessages.propTypes = {
         dialogsData: PropTypes.array,
-        id: PropTypes.number.isRequired,
-        message: PropTypes.string.isRequired,
-        list: PropTypes.array.isRequired
+        id: PropTypes.number,
+        message: PropTypes.string,
+        list: PropTypes.array
     }
     
     let messages = <Routes>{dialogsData.map(item =>

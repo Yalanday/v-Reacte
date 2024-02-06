@@ -1,3 +1,9 @@
+import { rerender } from "../render";
+
+function getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+
 let state = {
 
     dialogs: {
@@ -152,9 +158,13 @@ let state = {
                 ]
             },
         ],
-        addMessage: () => alert('mama'),
-    }
-    
+
+        addMessage: (userMessage, array = []) => {
+            let nemMessage = {id: getRandomArbitrary(1, 10000), message: userMessage};
+            array[0].list.push(nemMessage);
+            rerender(state);
+        },
+    } 
 
 }
 
