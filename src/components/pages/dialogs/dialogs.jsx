@@ -23,7 +23,7 @@ function Dialogs({ dialogsData, addMessage, messageValue, updateNewMessage }) {
         updateNewMessage(postElenemt.current.value);
     }
     function added() {
-        addMessage(postElenemt.current.value, dialogsData);
+        addMessage();
         postElenemt.current.focus();
     }
 
