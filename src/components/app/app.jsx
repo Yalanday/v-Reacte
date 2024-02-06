@@ -8,11 +8,12 @@ import StartPage from "../pages/start-page/startPage";
 import Dialogs from "../pages/dialogs/dialogs";
 import PropTypes from 'prop-types';
 
-function App({ dialogsData, addMessage, messageValue }) {
+function App({ dialogsData, addMessage, messageValue, updateNewMessage }) {
 
     App.propTypes = {
         dialogsData: PropTypes.array,
         addMessage: PropTypes.func,
+        updateNewMessage: PropTypes.func,
         messageValue: PropTypes.string
     };
 
@@ -29,8 +30,8 @@ function App({ dialogsData, addMessage, messageValue }) {
                     <Routes>
                         <Route path='/' Component={StartPage} />
                         <Route path='/my-page' Component={MyPage} />
-                        <Route exact path='/dialogs/*' element={<Dialogs dialogsData={dialogsData} addMessage={addMessage} messageValue={messageValue} />} />
-                        <Route exact path='//*' element={<MyComponents />} />
+                        <Route exact path='/dialogs/*' element={<Dialogs dialogsData={dialogsData} addMessage={addMessage} messageValue={messageValue} updateNewMessage={updateNewMessage} />} />
+                        <Route exact path='/my-components/*' element={<MyComponents />} />
                     </Routes>
                 </StyledMain>
                 <StyledFooter>ТУТ БУДЕТ МОДНЫЙ ФУТЕР</StyledFooter>

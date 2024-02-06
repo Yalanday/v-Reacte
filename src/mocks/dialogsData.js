@@ -1,8 +1,12 @@
-import { rerender } from "../render";
+let rerender = () => {};
+
+export const subscribe = (observer) => {
+    rerender = observer;
+};
 
 function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
-  }
+}
 
 let state = {
 
@@ -116,7 +120,7 @@ let state = {
                         id: 2545,
                         message: "Купи Pomidorka"
                     },
-        
+
                 ]
             },
             {
@@ -135,7 +139,7 @@ let state = {
                         id: 1114,
                         message: "No, only water"
                     },
-        
+
                 ]
             },
             {
@@ -154,23 +158,27 @@ let state = {
                         id: 1109,
                         message: "No, GEYmer! ha ha ha!!!"
                     }
-        
+
                 ]
             },
         ],
 
         messageValue: "",
 
-        addMessage: (userMessage, array = []) => {
-            let nemMessage = {id: getRandomArbitrary(1, 10000), message: userMessage};
+        addMessage: (messageValue, array = []) => {
+            let nemMessage = { id: getRandomArbitrary(1, 10000), message: messageValue };
             array[0].list.push(nemMessage);
+            state.dialogs.messageValue = "";
             rerender(state);
         },
-    } 
+
+        updateNewMessage: (newMessage) => {
+            state.dialogs.messageValue = newMessage;
+            rerender(state);
+        },
+    }
 
 }
-
-
 
 
 export default state;
