@@ -5,10 +5,13 @@ import {
     InputButtonWrapper, MessageInputField, MessagesubmitButton, InputFile
 } from './style';
 import RenderMessages from './renderMessages';
+import { addMessageActionCreater, updateNewMessageActionCreater } from '../../../mocks/dialogsData';
 
-function Dialogs({ dialogsData, addMessage, messageValue, updateNewMessage }) {
+
+function Dialogs({ dialogsData, messageValue, dispatch }) {
 
     Dialogs.propTypes = {
+        dispatch: PropTypes.func,
         addMessage: PropTypes.func,
         updateNewMessage: PropTypes.func,
         dialogsData: PropTypes.array,
@@ -17,22 +20,21 @@ function Dialogs({ dialogsData, addMessage, messageValue, updateNewMessage }) {
         name: PropTypes.string,
     }
 
-    let postElenemt = React.createRef();
+    const postElenemt = React.createRef();
 
-    function updateValue() {
-        updateNewMessage(postElenemt.current.value);
-    }
-    function added() {
-        addMessage();
+    const updateValue = () => dispatch(updateNewMessageActionCreater(postElenemt.current.value));
+
+    const added = () => {
+        dispatch(addMessageActionCreater());
         postElenemt.current.focus();
-    }
+    };
 
-    function addOfkey(e) {
+    const addOfkey = (e) => {
         if (e.keyCode == 13 && e.shiftKey) {
             e.preventDefault();
-            added()
+            added();
         }
-    }
+    };
 
     let dialogList = dialogsData.map(prop =>
         <DialogsLink to={`/dialogs/${prop.id}`} key={prop.id}>
@@ -49,7 +51,13 @@ function Dialogs({ dialogsData, addMessage, messageValue, updateNewMessage }) {
             <RenderMessages dialogsData={dialogsData} />
             <InputButtonWrapper>
                 <InputFile />
-                <MessageInputField ref={postElenemt} onChange={updateValue} value={messageValue} onKeyDown={addOfkey} placeholder='Введите ваше сообщение'></MessageInputField>
+                <MessageInputField
+                    ref={postElenemt}
+                    onChange={updateValue}
+                    value={messageValue}
+                    onKeyDown={addOfkey}
+                    placeholder='Введите ваше сообщение'
+                />
                 <MessagesubmitButton onClick={added} />
             </InputButtonWrapper>
         </DialogsWrapper>

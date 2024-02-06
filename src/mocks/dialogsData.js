@@ -1,3 +1,9 @@
+const ADD_MESSAGE = "ADD-MESSAGE";
+const UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE";
+
+export const addMessageActionCreater = () => ({ type: ADD_MESSAGE });
+export const updateNewMessageActionCreater = (string) => ({type: UPDATE_NEW_MESSAGE, newString: string}); 
+
 let store = {
 
     getRandomArbitrary(min, max) {
@@ -5,10 +11,6 @@ let store = {
     },
 
     _callSubscriber() { },
-
-    subscribe(observer) {
-        this._callSubscriber = observer;
-    },
 
     _state: {
 
@@ -167,22 +169,39 @@ let store = {
 
             messageValue: "",
 
-            addMessage() {
-                let nemMessage = { id: this.getRandomArbitrary(1, 10000), message: this._state.dialogs.messageValue };
-                this._state.dialogs.dialogsData[0].list.push(nemMessage);
-                this._state.dialogs.messageValue = "";
-                this._callSubscriber(this._state);
-            },
-
-            updateNewMessage(newMessage) {
-                this._state.dialogs.messageValue = newMessage;
-                this._callSubscriber(this._state);
-            },
         }
     },
 
-    getState() { return this._state }
+    getState() {
+        return this._state;
+    },
 
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+
+    _addMessage() {
+        let nemMessage = { id: this.getRandomArbitrary(1, 10000), message: this._state.dialogs.messageValue };
+        this._state.dialogs.dialogsData[0].list.push(nemMessage);
+        this._state.dialogs.messageValue = "";
+        this._callSubscriber(this._state);
+    },
+
+    _updateNewMessage(newMessage) {
+        this._state.dialogs.messageValue = newMessage;
+        this._callSubscriber(this._state);
+    },
+
+    dispatch(action) {
+        switch (action.type) {
+            case ADD_MESSAGE:
+                this._addMessage();
+                break;
+            case UPDATE_NEW_MESSAGE:
+                this._updateNewMessage(action.nemMessage);
+                break;
+        }
+    }
 }
 
 

@@ -8,9 +8,10 @@ import StartPage from "../pages/start-page/startPage";
 import Dialogs from "../pages/dialogs/dialogs";
 import PropTypes from 'prop-types';
 
-function App({ dialogsData, addMessage, messageValue, updateNewMessage }) {
+function App({ dialogsData, messageValue, dispatch }) {
 
     App.propTypes = {
+        dispatch: PropTypes.func,
         dialogsData: PropTypes.array,
         addMessage: PropTypes.func,
         updateNewMessage: PropTypes.func,
@@ -28,9 +29,13 @@ function App({ dialogsData, addMessage, messageValue, updateNewMessage }) {
                 </StyledNavWrapper>
                 <StyledMain>
                     <Routes>
-                        <Route path='/' Component={StartPage} />
-                        <Route path='/my-page' Component={MyPage} />
-                        <Route exact path='/dialogs/*' element={<Dialogs dialogsData={dialogsData} addMessage={addMessage} messageValue={messageValue} updateNewMessage={updateNewMessage} />} />
+                        <Route path='/' element={<StartPage />} />
+                        <Route path='/my-page' element={<MyPage />} />
+                        <Route exact path='/dialogs/*' element={<Dialogs
+                            dialogsData={dialogsData}
+                            messageValue={messageValue}
+                            dispatch={dispatch}
+                        />} />
                         <Route exact path='/my-components/*' element={<MyComponents />} />
                     </Routes>
                 </StyledMain>

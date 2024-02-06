@@ -10,8 +10,8 @@ function MyComponents() {
             <Link to="/my-components/circle">Кружочки</Link>
             <TitleExample>Название компонента</TitleExample>
             <Routes>
-                <Route path='/task-wrapper' Component={TaskWrapper} />
-                <Route path='/circle' Component={CircleWrapper} />
+                <Route path='/task-wrapper' element={ <TaskWrapper />} />
+                <Route path='/circle' element={ <CircleWrapper />} />
             </Routes>
             <ButtonExample>Скачать код</ButtonExample>
         </StyledExample>
