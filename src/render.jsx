@@ -8,7 +8,7 @@ export function rerender(state) {
 
     root.render(
         <React.StrictMode>
-            <App dialogsData={state.dialogs.dialogsData} addMessage={state.dialogs.addMessage}/>
+            <App dialogsData={state.dialogs.dialogsData} addMessage={state.dialogs.addMessage} messageValue={state.dialogs.messageValue} />
         </React.StrictMode>,
     )
 }

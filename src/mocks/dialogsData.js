@@ -159,6 +159,8 @@ let state = {
             },
         ],
 
+        messageValue: "",
+
         addMessage: (userMessage, array = []) => {
             let nemMessage = {id: getRandomArbitrary(1, 10000), message: userMessage};
             array[0].list.push(nemMessage);

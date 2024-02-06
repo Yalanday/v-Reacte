@@ -6,11 +6,12 @@ import {
 } from './style';
 import RenderMessages from './renderMessages';
 
-function Dialogs({ dialogsData, addMessage }) {
+function Dialogs({ dialogsData, addMessage, messageValue }) {
 
     Dialogs.propTypes = {
         addMessage: PropTypes.func,
         dialogsData: PropTypes.array,
+        messageValue: PropTypes.string,
         id: PropTypes.number,
         name: PropTypes.string,
     }
@@ -19,7 +20,8 @@ function Dialogs({ dialogsData, addMessage }) {
 
     function added() {
         addMessage(postElenemt.current.value, dialogsData );
-        postElenemt.current.value = '';   
+        messageValue = postElenemt.current.value;
+        postElenemt.current.value = messageValue;   
         postElenemt.current.focus();     
     }
 
@@ -42,7 +44,7 @@ function Dialogs({ dialogsData, addMessage }) {
             <RenderMessages dialogsData={dialogsData} />
             <InputButtonWrapper>
                 <InputFile />
-                <MessageInputField ref={postElenemt} onKeyDown={addOfkey} placeholder='Введите ваше сообщение'></MessageInputField>
+                <MessageInputField ref={postElenemt} onChange={added} value={messageValue} onKeyDown={addOfkey} placeholder='Введите ваше сообщение'></MessageInputField>
                 <MessagesubmitButton onClick={added} />
             </InputButtonWrapper>
         </DialogsWrapper>

@@ -1,9 +1,9 @@
 import { Link, Routes, Route } from "react-router-dom";
 import { ButtonExample, StyledExample, TitleExample } from "./style";
-import TaskWrapper from "./task/task-wrapper";
-import CircleWrapper from "./circles/circle-wrapper";
+import TaskWrapper from "./task/taskWrapper";
+import CircleWrapper from "./circles/circleWrapper";
 
-function Examples() {
+function MyComponents() {
     return (
         <StyledExample>
             <Link to="/examples/task-wrapper">Список задач</Link>
@@ -18,4 +18,4 @@ function Examples() {
     )
 }
 
-export default Examples;
+export default MyComponents;

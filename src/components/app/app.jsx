@@ -1,18 +1,19 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Logo from "../logo/logo";
 import Nav from "../nav/nav";
-import Examples from "../pages/examples/example-page";
-import MyPage from "../pages/my-page/my-page";
+import MyComponents from "../pages/my-components/myComponents";
+import MyPage from "../pages/my-page/myPage";
 import { PageWrapper, StyledFooter, StyledHeader, StyledMain, StyledNavWrapper } from "./style";
-import StartPage from "../pages/start-page/start-page";
+import StartPage from "../pages/start-page/startPage";
 import Dialogs from "../pages/dialogs/dialogs";
 import PropTypes from 'prop-types';
 
-function App({ dialogsData, addMessage }) {
+function App({ dialogsData, addMessage, messageValue }) {
 
     App.propTypes = {
         dialogsData: PropTypes.array,
-        addMessage: PropTypes.func
+        addMessage: PropTypes.func,
+        messageValue: PropTypes.string
     };
 
     return (
@@ -28,8 +29,8 @@ function App({ dialogsData, addMessage }) {
                     <Routes>
                         <Route path='/' Component={StartPage} />
                         <Route path='/my-page' Component={MyPage} />
-                        <Route exact path='/dialogs/*' element={<Dialogs dialogsData={dialogsData} addMessage={addMessage} />} />
-                        <Route exact path='/examples/*' element={<Examples />} />
+                        <Route exact path='/dialogs/*' element={<Dialogs dialogsData={dialogsData} addMessage={addMessage} messageValue={messageValue} />} />
+                        <Route exact path='//*' element={<MyComponents />} />
                     </Routes>
                 </StyledMain>
                 <StyledFooter>ТУТ БУДЕТ МОДНЫЙ ФУТЕР</StyledFooter>
