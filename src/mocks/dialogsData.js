@@ -2,7 +2,7 @@ const ADD_MESSAGE = "ADD-MESSAGE";
 const UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE";
 
 export const addMessageActionCreater = () => ({ type: ADD_MESSAGE });
-export const updateNewMessageActionCreater = (string) => ({type: UPDATE_NEW_MESSAGE, newString: string}); 
+export const updateNewMessageActionCreater = (string) => ({type: UPDATE_NEW_MESSAGE, nemMessage: string}); 
 
 let store = {
 

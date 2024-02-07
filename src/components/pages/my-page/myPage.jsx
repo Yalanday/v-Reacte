@@ -1,8 +1,10 @@
-import { StyledMyPage } from "./style";
+import { StyledMyPage, TitleMyPage } from "./style";
 
 function MyPage() {
     return (
-        <StyledMyPage>Тут будет моя страница презентация</StyledMyPage>
+        <StyledMyPage>
+            <TitleMyPage>Тут будет моя страница презентация</TitleMyPage>
+            </StyledMyPage>
     )
 }
 

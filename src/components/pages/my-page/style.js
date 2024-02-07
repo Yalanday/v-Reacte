@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import hacker from "/src/img/hacker-boromir.jpg"
+import hacker from "/src/img/hacker-boromir.jpg";
 
 export const StyledMyPage = styled.div`
-    /* background-color: rgba(255, 255, 255, 0.1); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-image: url(${hacker});
     background-size: cover;
     background-position: center;
@@ -11,7 +13,9 @@ export const StyledMyPage = styled.div`
     align-items: center;
     height: 100%;
     justify-content: center;
-    font-size: 6vw;
-    font-weight: 700;
-    padding-left: 20px;
 `;
+
+export const TitleMyPage = styled.h1`
+    margin: 20px auto auto;
+`;
+

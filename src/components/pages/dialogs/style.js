@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import LogoImage from '/src/assets/react.svg';
 import { Link } from 'react-router-dom';
+import Button from "../../ui/button/button";
+import {Textarea} from "../../ui/textarea/textarea";
+
 
 export const DialogsWrapper = styled.div`
     display: grid;
@@ -90,31 +92,14 @@ export const InputFile = styled.div`
 
 `;
 
-export const MessageInputField = styled.textarea`
+export const MessageInputField = styled(Textarea)`
     width: 85%;
     height: 80%;
     font-size: 18px;
     resize: none;
 `;
 
-export const MessagesubmitButton = styled.button`
+export const MessagesubmitButton = styled(Button)`
     margin: 0 auto;
-    width: 45px;
-    height: 40px;
-    background-color: #242424;
-    background-image: url(${LogoImage});
-    background-size: cover;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.3s ease-in-out;
-
-    &:hover {
-        opacity: 0.7;
-    }
-
-    &:active {
-        opacity: 0.3;
-    }
 `;
 

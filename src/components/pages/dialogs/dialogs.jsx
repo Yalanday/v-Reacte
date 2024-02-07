@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react';
+import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
     DialogsWrapper, DialogsList, DialogsLink, DialogsItem, DialogsItemIcons,
@@ -19,14 +20,13 @@ function Dialogs({ dialogsData, messageValue, dispatch }) {
         id: PropTypes.number,
         name: PropTypes.string,
     }
+    const textareaElement = useRef();
 
-    const postElenemt = React.createRef();
-
-    const updateValue = () => dispatch(updateNewMessageActionCreater(postElenemt.current.value));
+    const updateValue = () => dispatch(updateNewMessageActionCreater(textareaElement.current.value));
 
     const added = () => {
         dispatch(addMessageActionCreater());
-        postElenemt.current.focus();
+        textareaElement.current.focus();
     };
 
     const addOfkey = (e) => {
@@ -51,14 +51,14 @@ function Dialogs({ dialogsData, messageValue, dispatch }) {
             <RenderMessages dialogsData={dialogsData} />
             <InputButtonWrapper>
                 <InputFile />
-                <MessageInputField
-                    ref={postElenemt}
+                <MessageInputField               
+                     ref={textareaElement}
                     onChange={updateValue}
                     value={messageValue}
                     onKeyDown={addOfkey}
                     placeholder='Введите ваше сообщение'
                 />
-                <MessagesubmitButton onClick={added} />
+                <MessagesubmitButton click={added} />
             </InputButtonWrapper>
         </DialogsWrapper>
     )
