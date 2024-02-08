@@ -1,14 +1,17 @@
+import dialogsReducer from "./reducers/dialogs-reducer";
+
 const ADD_MESSAGE = "ADD-MESSAGE";
 const UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE";
 
 export const addMessageActionCreater = () => ({ type: ADD_MESSAGE });
-export const updateNewMessageActionCreater = (string) => ({type: UPDATE_NEW_MESSAGE, nemMessage: string}); 
+export const updateNewMessageActionCreater = (string) => ({ type: UPDATE_NEW_MESSAGE, newMessage: string });
+
+export function getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
 
 let store = {
-
-    getRandomArbitrary(min, max) {
-        return Math.floor(Math.random() * (max - min) + min);
-    },
 
     _callSubscriber() { },
 
@@ -180,27 +183,32 @@ let store = {
         this._callSubscriber = observer;
     },
 
-    _addMessage() {
-        let nemMessage = { id: this.getRandomArbitrary(1, 10000), message: this._state.dialogs.messageValue };
-        this._state.dialogs.dialogsData[0].list.push(nemMessage);
-        this._state.dialogs.messageValue = "";
-        this._callSubscriber(this._state);
-    },
+    // _addMessage() {
+    //     let nemMessage = { id: this.getRandomArbitrary(1, 10000), message: this._state.dialogs.messageValue };
+    //     this._state.dialogs.dialogsData[0].list.push(nemMessage);
+    //     this._state.dialogs.messageValue = "";
+    //     this._callSubscriber(this._state);
+    // },
 
-    _updateNewMessage(newMessage) {
-        this._state.dialogs.messageValue = newMessage;
-        this._callSubscriber(this._state);
-    },
+    // _updateNewMessage(newMessage) {
+    //     this._state.dialogs.messageValue = newMessage;
+    //     this._callSubscriber(this._state);
+    // },
 
     dispatch(action) {
-        switch (action.type) {
-            case ADD_MESSAGE:
-                this._addMessage();
-                break;
-            case UPDATE_NEW_MESSAGE:
-                this._updateNewMessage(action.nemMessage);
-                break;
-        }
+        
+        this._state.dialogs = dialogsReducer(this._state.dialogs, action);
+
+        this._callSubscriber(this._state);
+
+        //     switch (action.type) {
+        //         case ADD_MESSAGE:
+        //             this._addMessage();
+        //             break;
+        //         case UPDATE_NEW_MESSAGE:
+        //             this._updateNewMessage(action.nemMessage);
+        //             break;
+        //     }
     }
 }
 

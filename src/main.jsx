@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 import './index.css';
-import store from './mocks/dialogsData';
+import store from './redux/dialogsData';
 
 let root = ReactDOM.createRoot(document.getElementById('root'));
 

@@ -6,7 +6,7 @@ import {
     InputButtonWrapper, MessageInputField, MessagesubmitButton, InputFile
 } from './style';
 import RenderMessages from './renderMessages';
-import { addMessageActionCreater, updateNewMessageActionCreater } from '../../../mocks/dialogsData';
+import { addMessageActionCreater, updateNewMessageActionCreater } from '../../../redux/dialogsData';
 
 
 function Dialogs({ dialogsData, messageValue, dispatch }) {
@@ -56,7 +56,7 @@ function Dialogs({ dialogsData, messageValue, dispatch }) {
                     onChange={updateValue}
                     value={messageValue}
                     onKeyDown={addOfkey}
-                    placeholder='Введите ваше сообщение'
+                    placeholder='Введите ваше сообщение. (Отправка сообщения Shift+Enter)'
                 />
                 <MessagesubmitButton click={added} />
             </InputButtonWrapper>
