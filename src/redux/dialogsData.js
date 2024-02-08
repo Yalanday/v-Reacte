@@ -1,10 +1,18 @@
 import dialogsReducer from "./reducers/dialogs-reducer";
+import myPostsReducer from "./reducers/my-posts-reducer";
 
 const ADD_MESSAGE = "ADD-MESSAGE";
 const UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE";
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST = "UPDATE-NEW-POST";
+
 
 export const addMessageActionCreater = () => ({ type: ADD_MESSAGE });
 export const updateNewMessageActionCreater = (string) => ({ type: UPDATE_NEW_MESSAGE, newMessage: string });
+
+export const addPostActionCreater = () => ({ type: ADD_POST });
+export const updateNewPostActionCreater = (string) => ({ type: UPDATE_NEW_POST, newPost: string });
+
 
 export function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
@@ -172,6 +180,16 @@ let store = {
 
             messageValue: "",
 
+        },
+
+        //todo Переделать posts.time на new Date.
+        myPosts: {
+            posts: [
+                { id: 1, text: "Пост 1", time: "08:15" },
+                { id: 2, text: "Пост 2", time: "09:25" },
+            ],
+
+            postValue: "",
         }
     },
 
@@ -196,19 +214,11 @@ let store = {
     // },
 
     dispatch(action) {
-        
+
         this._state.dialogs = dialogsReducer(this._state.dialogs, action);
+        this._state.myPosts = myPostsReducer(this._state.myPosts, action)
 
         this._callSubscriber(this._state);
-
-        //     switch (action.type) {
-        //         case ADD_MESSAGE:
-        //             this._addMessage();
-        //             break;
-        //         case UPDATE_NEW_MESSAGE:
-        //             this._updateNewMessage(action.nemMessage);
-        //             break;
-        //     }
     }
 }
 

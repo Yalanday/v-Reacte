@@ -8,14 +8,16 @@ import StartPage from "../pages/start-page/startPage";
 import Dialogs from "../pages/dialogs/dialogs";
 import PropTypes from 'prop-types';
 
-function App({ dialogsData, messageValue, dispatch }) {
+function App({ dialogsData, messageValue, dispatch, myPosts, postValue }) {
 
     App.propTypes = {
         dispatch: PropTypes.func,
         dialogsData: PropTypes.array,
         addMessage: PropTypes.func,
         updateNewMessage: PropTypes.func,
-        messageValue: PropTypes.string
+        messageValue: PropTypes.string,
+        myPosts: PropTypes.array,
+        postValue: PropTypes.string
     };
 
     return (
@@ -30,7 +32,7 @@ function App({ dialogsData, messageValue, dispatch }) {
                 <StyledMain>
                     <Routes>
                         <Route path='/' element={<StartPage />} />
-                        <Route path='/my-page' element={<MyPage />} />
+                        <Route path='/my-page' element={<MyPage myPosts={myPosts} dispatch={dispatch} postValue={postValue} />} />
                         <Route exact path='/dialogs/*' element={<Dialogs
                             dialogsData={dialogsData}
                             messageValue={messageValue}

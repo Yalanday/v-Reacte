@@ -13,6 +13,8 @@ function rerender() {
                 store.getState().dialogs.dialogsData}
                 messageValue={store.getState().dialogs.messageValue}
                 dispatch={store.dispatch.bind(store)}
+                myPosts={store.getState().myPosts.posts}
+                postValue={store.getState().myPosts.postValue}
             />
         </React.StrictMode>,
     )
