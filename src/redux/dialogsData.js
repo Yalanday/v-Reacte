@@ -6,6 +6,7 @@ const UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE";
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST = "UPDATE-NEW-POST";
 
+export const getCurrentTime = () => new Date().toLocaleTimeString() /*.slice(0,-3)*/; 
 
 export const addMessageActionCreater = () => ({ type: ADD_MESSAGE });
 export const updateNewMessageActionCreater = (string) => ({ type: UPDATE_NEW_MESSAGE, newMessage: string });
@@ -30,148 +31,156 @@ let store = {
                 {
                     id: 1,
                     name: "Марейн Хавербеке",
+                    foto: "/src/img/opponents/haverbeke.jpg",
                     list: [
                         {
                             id: 123,
+                            time: "11:11",
+                            opponent: true,
                             message: "Привет"
                         },
                         {
                             id: 212,
+                            time: "11:15",
+                            opponent: false,
                             message: "Привет"
                         },
                         {
                             id: 313,
+                            time: "11:20",
+                            opponent: true,
                             message: "Че делаешь?"
                         },
                         {
                             id: 414,
+                            time: "12:15",
+                            opponent: false,
                             message: "Да так ничего"
                         },
                         {
                             id: 515,
+                            time: "12:20",
+                            opponent: true,
                             message: "Не понял! Ты изучил мою книгу?"
                         },
                         {
                             id: 616,
+                            time: "13:00",
+                            opponent: false,
                             message: "Да..."
                         },
                         {
                             id: 717,
-                            message: "Ну тогда рассажи, что там с графами из проекта про робота доставщика"
+                            time: "13:10",
+                            opponent: true,
+                            message: "Ну тогда рассажи, что там с графами из проекта про робота доставщика?"
                         },
                         {
                             id: 818,
+                            time: "14:15",
+                            opponent: false,
                             message: "Абонент вне зоне действия сети..."
                         },
                         {
                             id: 919,
+                            time: "14:20",
+                            opponent: true,
                             message: "Эй!!! Это не телефон. Пока JS не выучишь, нам не о чем с тобой разговаривать"
                         },
                     ]
                 },
                 {
                     id: 2345,
-                    name: "Пётр",
+                    name: "Владимир Дронов",
+                    foto: "/src/img/opponents/dronov.jpg",
                     list: [
                         {
                             id: 121,
-                            message: "Hello"
+                            time: "08:04",
+                            opponent: true,
+                            message: "Привет, ну как тебе моя книга по React 17?"
                         },
                         {
                             id: 222,
-                            message: "World"
-                        }
+                            time: "09:11",
+                            opponent: false,
+                            message: "Ну она как бы 17 версии... а на дворе уж 2024 год в топе React 18  и его функциональное программирование, а у тебя там всё на классах..."
+                        },
+                        {
+                            id: 125,
+                            time: "10:39",
+                            opponent: true,
+                            message: "Ответ глупца. Без классового подхода, без ООП и без прочих фундаментальных вещей тебе нет места за клавиатурой."
+                        },
+                        {
+                            id: 23543622,
+                            time: "11:48",
+                            opponent: false,
+                            message: "У меня от времени затраченного на чтение архаизмов уже глаза кровоточат. Мне иногда кажется, что я сбиваюсь с цели!"
+                        },
+                        {
+                            id: 1254545,
+                            time: "12:22",
+                            opponent: true,
+                            message: "У программиста нет цели - только путь. Код осилит кодЮщий!!!"
+                        },
                     ]
                 },
                 {
                     id: 22,
-                    name: "Захар",
+                    name: "IT-цыган",
+                    foto: "/src/img/opponents/cigan.jpg",
+
                     list: [
                         {
-                            id: 3231,
+                            id: 323145,
+                            time: "16:16",
+                            opponent: true,
                             message: "Hello World"
                         },
                         {
                             id: 25648,
+                            time: "16:18",
+                            opponent: false,
                             message: "И тебе не хворать"
-                        }
-                    ]
-                },
-                {
-                    id: 333,
-                    name: "Макар",
-                    list: [
-                        {
-                            id: 4648,
-                            message: "Hello"
                         },
                         {
-                            id: 64587,
-                            message: "World"
+                            id: 3231,
+                            time: "16:20",
+                            opponent: true,
+                            message: "Интересуешься программированием? Приходи на наши курсы и всего за неделю за совершенно бесплатные 100500 тысяч рублей ты обретешь профессию мечты, переедешь на Бали, будешь кодить на песчаном пляже всего по 10 минут в день, а также обретешь свою любовь типажа неподражаемой Лары Крофт, ведь об этом ты мечтал! Мечта стучится в двери, тебе столько только ей открыться!!!"
                         },
                         {
-                            id: 4785,
-                            message: "Goodbye"
-                        },
-                        {
-                            id: 6989,
-                            message: "World"
+                            id: 25648665,
+                            time: "16:35",
+                            opponent: false,
+                            message: "Уже бегу!!!"
                         },
                     ]
-                },
-                {
-                    id: 404,
-                    name: "Абубакар",
-                    list: [
-                        {
-                            id: 789895,
-                            message: "Hello Pomidorka"
-                        },
-                        {
-                            id: 46811136,
-                            message: "World..."
-                        },
-                        {
-                            id: 2545,
-                            message: "Купи Pomidorka"
-                        },
-
-                    ]
-                },
-                {
-                    id: 55,
-                    name: "Ихтиандр",
-                    list: [
-                        {
-                            id: 6969,
-                            message: "Hello Water"
-                        },
-                        {
-                            id: 8823,
-                            message: "World"
-                        },
-                        {
-                            id: 1114,
-                            message: "No, only water"
-                        },
-
-                    ]
-                },
+                },                
                 {
                     id: 77,
                     name: "Лара Крофт",
+                    foto: "/src/img/opponents/lara.gif",
+
                     list: [
                         {
                             id: 1488,
+                            time: "17:00",
+                            opponent: true,
                             message: "Hello GEYmer"
                         },
                         {
                             id: 2407,
+                            time: "17:05",
+                            opponent: false,
                             message: "Gamer???"
                         },
                         {
                             id: 1109,
-                            message: "No, GEYmer! ha ha ha!!!"
+                            time: "17:06",
+                            opponent: true,
+                            message: "No, GEYmer! Ты меня подвёл, а ведь мы могли быть счастливы на Бали..."
                         }
 
                     ]
@@ -182,7 +191,6 @@ let store = {
 
         },
 
-        //todo Переделать posts.time на new Date.
         myPosts: {
             posts: [
                 { id: 1, text: "Пост 1", time: "08:15" },
@@ -200,18 +208,6 @@ let store = {
     subscribe(observer) {
         this._callSubscriber = observer;
     },
-
-    // _addMessage() {
-    //     let nemMessage = { id: this.getRandomArbitrary(1, 10000), message: this._state.dialogs.messageValue };
-    //     this._state.dialogs.dialogsData[0].list.push(nemMessage);
-    //     this._state.dialogs.messageValue = "";
-    //     this._callSubscriber(this._state);
-    // },
-
-    // _updateNewMessage(newMessage) {
-    //     this._state.dialogs.messageValue = newMessage;
-    //     this._callSubscriber(this._state);
-    // },
 
     dispatch(action) {
 

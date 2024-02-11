@@ -63,15 +63,41 @@ export const MessagesWrapper = styled.div`
 export const MessagesList = styled.ul`
     margin: auto auto 30px 85px;
     padding: 0;
+    padding-right: 50px;
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 `;
 
 export const MessagesItem = styled.li`
+    display: flex;
+    align-items: start;
+    gap: 10px;
     color: aqua;
-    word-wrap: break-word;
+    word-wrap: break-word;    
+`;
+
+export const MessageItemImg = styled.img`
+    width: 40px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(192,192,192, 0.2);
+    box-sizing: border-box;
+    background-image: url("https://www.shareicon.net/download/2016/12/19/863661_media_512x512.png");
+    background-size: cover;
+    background-position: center;
+`;
+
+export const TimeMessage = styled.time`
+display: block;
+font-size: 11px;
+opacity: 0.5;
+`;
+
+export const TextMessage = styled.span`
+font-size: inherit;
 `;
 
 export const InputButtonWrapper = styled.div`

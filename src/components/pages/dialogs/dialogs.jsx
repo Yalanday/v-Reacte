@@ -24,10 +24,10 @@ function Dialogs({ dialogsData, messageValue, dispatch }) {
 
     const updateValue = () => dispatch(updateNewMessageActionCreater(textareaElement.current.value));
 
-    const added = () => {
+    function added() {
         dispatch(addMessageActionCreater());
         textareaElement.current.focus();
-    };
+    }
 
     const addOfkey = (e) => {
         if (e.keyCode == 13 && e.shiftKey) {
@@ -37,9 +37,9 @@ function Dialogs({ dialogsData, messageValue, dispatch }) {
     };
 
     let dialogList = dialogsData.map(prop =>
-        <DialogsLink to={`/dialogs/${prop.id}`} key={prop.id}>
-            <DialogsItemIcons />
-            <DialogsItem>{prop.name}</DialogsItem>
+        <DialogsLink to={`/dialogs/${prop.id}`} key={prop.id} >
+            <DialogsItemIcons src={prop.foto} />
+            <DialogsItem >{prop.name}</DialogsItem>
         </DialogsLink>
     );
 
@@ -51,8 +51,8 @@ function Dialogs({ dialogsData, messageValue, dispatch }) {
             <RenderMessages dialogsData={dialogsData} />
             <InputButtonWrapper>
                 <InputFile />
-                <MessageInputField               
-                     ref={textareaElement}
+                <MessageInputField
+                    ref={textareaElement}
                     onChange={updateValue}
                     value={messageValue}
                     onKeyDown={addOfkey}
