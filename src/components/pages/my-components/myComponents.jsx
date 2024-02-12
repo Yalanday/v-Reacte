@@ -1,19 +1,26 @@
-import { Link, Routes, Route } from "react-router-dom";
-import { ButtonExample, StyledExample, TitleExample } from "./style";
-import TaskWrapper from "./task/taskWrapper";
-import CircleWrapper from "./circles/circleWrapper";
+import { Link } from "react-router-dom";
+import {
+    StyledExample, TitleExample, LinkWrapper,
+    LinkContent, VideoPrevievComponent, ComponentName
+} from "./style";
 
 function MyComponents() {
+
     return (
         <StyledExample>
-            <Link to="/my-components/task-wrapper">Список задач</Link>
-            <Link to="/my-components/circle">Кружочки</Link>
-            <TitleExample>Название компонента</TitleExample>
-            <Routes>
-                <Route path='/task-wrapper' element={ <TaskWrapper />} />
-                <Route path='/circle' element={ <CircleWrapper />} />
-            </Routes>
-            <ButtonExample>Скачать код</ButtonExample>
+            <Link to="/my-components-previev/*"><TitleExample>Мои компоненты</TitleExample></Link>
+            <LinkWrapper>
+                <Link to="/my-components/task-wrapper" >
+                    <LinkContent>
+                        <VideoPrevievComponent autoPlay loop muted><source src="/src/video/tasks.mp4" type="video/mp4" /></VideoPrevievComponent>
+                        <ComponentName>Список задач</ComponentName>
+                    </LinkContent>
+                </Link>
+                <Link to="/my-components/circle"><LinkContent>
+                    <VideoPrevievComponent autoPlay loop muted><source src="/src/video/circle.mp4" type="video/mp4" /></VideoPrevievComponent>
+                    <ComponentName>Кружочки</ComponentName>
+                </LinkContent></Link>
+            </LinkWrapper>
         </StyledExample>
     )
 }

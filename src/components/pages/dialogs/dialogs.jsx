@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
     DialogsWrapper, DialogsList, DialogsLink, DialogsItem, DialogsItemIcons,
-    InputButtonWrapper, MessageInputField, MessagesubmitButton, InputFile
+    InputButtonWrapper, MessageInputField, MessagesubmitButton, InputFile, Notification
 } from './style';
 import RenderMessages from './renderMessages';
 import { addMessageActionCreater, updateNewMessageActionCreater } from '../../../redux/dialogsData';
@@ -36,6 +36,8 @@ function Dialogs({ dialogsData, messageValue, dispatch }) {
         }
     };
 
+
+
     let dialogList = dialogsData.map(prop =>
         <DialogsLink to={`/dialogs/${prop.id}`} key={prop.id} >
             <DialogsItemIcons src={prop.foto} />
@@ -45,6 +47,7 @@ function Dialogs({ dialogsData, messageValue, dispatch }) {
 
     return (
         <DialogsWrapper>
+            <Notification style={{display: "none"}}>Выберите диалог и начните общение</Notification>
             <DialogsList>
                 {dialogList}
             </DialogsList>

@@ -12,7 +12,7 @@ function Nav() {
                 <StyledLink to="/dialogs">Сообщения</StyledLink>
                 </li>
                 <li>
-                    <StyledLink to="/my-components/*">Мои компоненты</StyledLink>
+                    <StyledLink to="/my-components-previev/*">Мои компоненты</StyledLink>
                 </li>
                 <li>Особенности хуков</li>
                 <li>Друзья</li>

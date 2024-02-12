@@ -7,6 +7,7 @@ import { PageWrapper, StyledFooter, StyledHeader, StyledMain, StyledNavWrapper }
 import StartPage from "../pages/start-page/startPage";
 import Dialogs from "../pages/dialogs/dialogs";
 import PropTypes from 'prop-types';
+import RoutesMyComponents from "../pages/my-components/routesMyComponents";
 
 function App({ dialogsData, messageValue, dispatch, myPosts, postValue }) {
 
@@ -38,7 +39,8 @@ function App({ dialogsData, messageValue, dispatch, myPosts, postValue }) {
                             messageValue={messageValue}
                             dispatch={dispatch}
                         />} />
-                        <Route exact path='/my-components/*' element={<MyComponents />} />
+                        <Route exact path='/my-components-previev/*' element={<MyComponents />} />
+                        <Route exact path='/my-components/*' element={<RoutesMyComponents />} />
                     </Routes>
                 </StyledMain>
                 <StyledFooter>ТУТ БУДЕТ МОДНЫЙ ФУТЕР</StyledFooter>

@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import Button from "../../ui/button/button";
-import {Textarea} from "../../ui/textarea/textarea";
+import { Textarea } from "../../ui/textarea/textarea";
 
 
 export const DialogsWrapper = styled.div`
+    position: relative;
+
     display: grid;
     grid-template-areas: 
         "dialogs messages"
@@ -129,3 +131,10 @@ export const MessagesubmitButton = styled(Button)`
     margin: 0 auto;
 `;
 
+export const Notification = styled.div`
+position: absolute;
+top: 50%;
+left: 50%;
+text-align: center;
+display: ${(props) => props.$isLoading};
+`;
