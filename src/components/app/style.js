@@ -22,6 +22,7 @@ export const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     padding-left: 10px;
+    color: #4118AB
 `;
 
 export const StyledMain = styled.main`
