@@ -5,7 +5,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #000000;
+  padding: 10px 0 15px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,7 +17,6 @@
 a {
   font-weight: 500;
   color: #646cff;
-  /* color: #00D8FF; */
   text-decoration: inherit;
 }
 a:hover {

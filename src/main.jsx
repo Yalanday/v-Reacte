@@ -9,12 +9,7 @@ let root = ReactDOM.createRoot(document.getElementById('root'));
 function rerender(state) {
   root.render(
       <React.StrictMode>
-        <App dialogsData={state.dialogsData.dialogs.dialogsData}
-             messageValue={state.dialogsData.dialogs.messageValue}
-             dispatch={storeRedux.dispatch}
-             myPosts={state.myPosts.posts}
-             postValue={state.myPosts.postValue}
-        />
+        <App props={state} dispatch={storeRedux.dispatch}/>
       </React.StrictMode>,
   )
 }

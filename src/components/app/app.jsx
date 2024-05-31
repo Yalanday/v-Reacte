@@ -9,17 +9,7 @@ import RoutesMyComponents from "../pages/my-components/routesMyComponents";
 import MyPageContainer from "../pages/my-page/myPageContainer.jsx";
 import DialogsContainer from "../pages/dialogs/dialogsContaider.jsx";
 
-function App({ dialogsData, messageValue, dispatch, myPosts, postValue }) {
-
-    App.propTypes = {
-        dispatch: PropTypes.func,
-        dialogsData: PropTypes.array,
-        addMessage: PropTypes.func,
-        updateNewMessage: PropTypes.func,
-        messageValue: PropTypes.string,
-        myPosts: PropTypes.array,
-        postValue: PropTypes.string
-    };
+function App({props, dispatch} ) {
 
     return (
         <BrowserRouter>
@@ -33,11 +23,9 @@ function App({ dialogsData, messageValue, dispatch, myPosts, postValue }) {
                 <StyledMain>
                     <Routes>
                         <Route path='/' element={<StartPage />} />
-                        <Route path='/my-page' element={<MyPageContainer myPosts={myPosts} dispatch={dispatch} postValue={postValue} />} />
+                        <Route path='/my-page' element={<MyPageContainer props={props} dispatch={dispatch} />} />
                         <Route exact path='/dialogs/*' element={<DialogsContainer
-                            dialogsData={dialogsData}
-                            messageValue={messageValue}
-                            dispatch={dispatch}
+                            props={props} dispatch={dispatch}
                         />} />
                         <Route exact path='/my-components-previev/*' element={<MyComponents />} />
                         <Route exact path='/my-components/*' element={<RoutesMyComponents />} />
@@ -48,5 +36,10 @@ function App({ dialogsData, messageValue, dispatch, myPosts, postValue }) {
         </BrowserRouter>
     )
 }
+
+App.propTypes = {
+    dispatch: PropTypes.func,
+    props: PropTypes.object
+};
 
 export default App;
