@@ -5,20 +5,21 @@ import {
     TextareaMyPage, TitleMyPage, MyPagePostButton, TimeSpan
 } from "./style";
 import { useRef } from 'react';
-import { updateNewPostActionCreater, addPostActionCreater } from '../../../redux/reducers/my-posts-reducer.js';
+// import { updateNewPostActionCreater, addPostActionCreater } from '../../../redux/reducers/my-posts-reducer.js';
 
-function MyPage({ myPosts, postValue, dispatch }) {
-
+function MyPage({ myPosts, postValue, updateValuePostDispatch, addValuePostDispatch }) {
     let textareaPostElement = useRef();
 
     let getMyPostItems = myPosts.map(post =>
         <MyPagePostItem key={post.id}>{post.text}<TimeSpan>{post.time}</TimeSpan></MyPagePostItem>
     );
 
-    const updateValuePost = () => dispatch(updateNewPostActionCreater(textareaPostElement.current.value));
+    const updateValuePost = () => {
+        updateValuePostDispatch(textareaPostElement);
+    };
 
     const addNewPost = () => {
-        dispatch(addPostActionCreater());
+        addValuePostDispatch();
         textareaPostElement.current.focus();
     };
 
@@ -51,8 +52,9 @@ MyPage.propTypes = {
     text: PropTypes.string,
     time: PropTypes.string,
     getMyPostItems: PropTypes.func,
-    dispatch: PropTypes.func,
-    postValue: PropTypes.string
+    addValuePostDispatch: PropTypes.func,
+    postValue: PropTypes.string,
+    updateValuePostDispatch: PropTypes.func
 };
 
 export default MyPage;

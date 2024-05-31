@@ -2,12 +2,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Logo from "../logo/logo";
 import Nav from "../nav/nav";
 import MyComponents from "../pages/my-components/myComponents";
-import MyPage from "../pages/my-page/myPage";
 import { PageWrapper, StyledFooter, StyledHeader, StyledMain, StyledNavWrapper } from "./style";
 import StartPage from "../pages/start-page/startPage";
-import Dialogs from "../pages/dialogs/dialogs";
 import PropTypes from 'prop-types';
 import RoutesMyComponents from "../pages/my-components/routesMyComponents";
+import MyPageContainer from "../pages/my-page/myPageContainer.jsx";
+import DialogsContainer from "../pages/dialogs/dialogsContaider.jsx";
 
 function App({ dialogsData, messageValue, dispatch, myPosts, postValue }) {
 
@@ -33,8 +33,8 @@ function App({ dialogsData, messageValue, dispatch, myPosts, postValue }) {
                 <StyledMain>
                     <Routes>
                         <Route path='/' element={<StartPage />} />
-                        <Route path='/my-page' element={<MyPage myPosts={myPosts} dispatch={dispatch} postValue={postValue} />} />
-                        <Route exact path='/dialogs/*' element={<Dialogs
+                        <Route path='/my-page' element={<MyPageContainer myPosts={myPosts} dispatch={dispatch} postValue={postValue} />} />
+                        <Route exact path='/dialogs/*' element={<DialogsContainer
                             dialogsData={dialogsData}
                             messageValue={messageValue}
                             dispatch={dispatch}

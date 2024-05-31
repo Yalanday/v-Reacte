@@ -6,26 +6,15 @@ import {
     InputButtonWrapper, MessageInputField, MessagesubmitButton, InputFile, Notification
 } from './style';
 import RenderMessages from './renderMessages';
-import { addMessageActionCreater, updateNewMessageActionCreater } from '../../../redux/reducers/dialogs-reducer.js';
 
+function Dialogs({ dialogsData, messageValue, updateValueDispatch, addMessageDispatch }) {
 
-function Dialogs({ dialogsData, messageValue, dispatch }) {
-
-    Dialogs.propTypes = {
-        dispatch: PropTypes.func,
-        addMessage: PropTypes.func,
-        updateNewMessage: PropTypes.func,
-        dialogsData: PropTypes.array,
-        messageValue: PropTypes.string,
-        id: PropTypes.number,
-        name: PropTypes.string,
-    }
     const textareaElement = useRef();
 
-    const updateValue = () => dispatch(updateNewMessageActionCreater(textareaElement.current.value));
+    const updateValue = () => updateValueDispatch(textareaElement.current.value);
 
     function added() {
-        dispatch(addMessageActionCreater());
+        addMessageDispatch();
         textareaElement.current.focus();
     }
 
@@ -35,8 +24,6 @@ function Dialogs({ dialogsData, messageValue, dispatch }) {
             added();
         }
     };
-
-
 
     let dialogList = dialogsData.map(prop =>
         <DialogsLink to={`/dialogs/${prop.id}`} key={prop.id} >
@@ -65,6 +52,18 @@ function Dialogs({ dialogsData, messageValue, dispatch }) {
             </InputButtonWrapper>
         </DialogsWrapper>
     )
+}
+
+Dialogs.propTypes = {
+    dispatch: PropTypes.func,
+    addMessage: PropTypes.func,
+    updateNewMessage: PropTypes.func,
+    dialogsData: PropTypes.array,
+    messageValue: PropTypes.string,
+    id: PropTypes.number,
+    name: PropTypes.string,
+    updateValueDispatch: PropTypes.func,
+    addMessageDispatch: PropTypes.func
 }
 
 export default Dialogs;
