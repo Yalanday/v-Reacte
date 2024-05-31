@@ -21,7 +21,6 @@ function rerender(state) {
 
 rerender(storeRedux.getState());
 
-
 storeRedux.subscribe(() => {
   let newState = storeRedux.getState();
   rerender(newState)
