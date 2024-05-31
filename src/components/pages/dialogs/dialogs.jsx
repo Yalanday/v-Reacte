@@ -6,7 +6,7 @@ import {
     InputButtonWrapper, MessageInputField, MessagesubmitButton, InputFile, Notification
 } from './style';
 import RenderMessages from './renderMessages';
-import { addMessageActionCreater, updateNewMessageActionCreater } from '../../../redux/dialogsData';
+import { addMessageActionCreater, updateNewMessageActionCreater } from '../../../redux/reducers/dialogs-reducer.js';
 
 
 function Dialogs({ dialogsData, messageValue, dispatch }) {

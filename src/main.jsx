@@ -2,23 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 import './index.css';
-import store from './redux/dialogsData';
+import storeRedux from "./redux/redux-store.js";
 
 let root = ReactDOM.createRoot(document.getElementById('root'));
 
-function rerender() {
-    root.render(
-        <React.StrictMode>
-            <App dialogsData={
-                store.getState().dialogs.dialogsData}
-                messageValue={store.getState().dialogs.messageValue}
-                dispatch={store.dispatch.bind(store)}
-                myPosts={store.getState().myPosts.posts}
-                postValue={store.getState().myPosts.postValue}
-            />
-        </React.StrictMode>,
-    )
+function rerender(state) {
+  root.render(
+      <React.StrictMode>
+        <App dialogsData={state.dialogsData.dialogs.dialogsData}
+             messageValue={state.dialogsData.dialogs.messageValue}
+             dispatch={storeRedux.dispatch}
+             myPosts={state.myPosts.posts}
+             postValue={state.myPosts.postValue}
+        />
+      </React.StrictMode>,
+  )
 }
 
-rerender(store.getState());
-store.subscribe(rerender);
+rerender(storeRedux.getState());
+
+
+storeRedux.subscribe(() => {
+  let newState = storeRedux.getState();
+  rerender(newState)
+});

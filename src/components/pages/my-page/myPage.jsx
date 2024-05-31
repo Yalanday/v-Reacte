@@ -5,7 +5,7 @@ import {
     TextareaMyPage, TitleMyPage, MyPagePostButton, TimeSpan
 } from "./style";
 import { useRef } from 'react';
-import { updateNewPostActionCreater, addPostActionCreater } from '../../../redux/dialogsData';
+import { updateNewPostActionCreater, addPostActionCreater } from '../../../redux/reducers/my-posts-reducer.js';
 
 function MyPage({ myPosts, postValue, dispatch }) {
 
@@ -35,9 +35,9 @@ function MyPage({ myPosts, postValue, dispatch }) {
             <MyPagePostList>
                 {getMyPostItems}
             </MyPagePostList>
-            <TextareaMyPage value={postValue} 
-            ref={textareaPostElement} 
-            onChange={updateValuePost} 
+            <TextareaMyPage value={postValue}
+            ref={textareaPostElement}
+            onChange={updateValuePost}
             onKeyDown={addOfKeys}
             placeholder='Введите текст. (Отправка сообщения Shift+Enter)' />
             <MyPagePostButton click={addNewPost} />
