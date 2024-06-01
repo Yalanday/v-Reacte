@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
-
 import {
     MyPagePostItem, MyPagePostList, StyledMyPage,
     TextareaMyPage, TitleMyPage, MyPagePostButton, TimeSpan
 } from "./style";
 import { useRef } from 'react';
-// import { updateNewPostActionCreater, addPostActionCreater } from '../../../redux/reducers/my-posts-reducer.js';
 
 function MyPage({ myPosts, postValue, updateValuePostDispatch, addValuePostDispatch }) {
     let textareaPostElement = useRef();

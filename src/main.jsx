@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import App from './components/app/app';
 import './index.css';
 import storeRedux from "./redux/redux-store.js";
+import {Provider} from "react-redux";
 
 let root = ReactDOM.createRoot(document.getElementById('root'));
 
 function rerender(state) {
   root.render(
       <React.StrictMode>
-        <App props={state} dispatch={storeRedux.dispatch}/>
+        <Provider store={storeRedux} >
+          <App />
+        </Provider>
       </React.StrictMode>,
   )
 }
@@ -17,6 +20,6 @@ function rerender(state) {
 rerender(storeRedux.getState());
 
 storeRedux.subscribe(() => {
-  let newState = storeRedux.getState();
-  rerender(newState)
+  let state = storeRedux.getState();
+  rerender(state)
 });

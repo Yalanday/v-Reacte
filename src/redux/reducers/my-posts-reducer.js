@@ -8,13 +8,18 @@ let initialState = dataBase.myPosts;
 const myPostsReducer = (state = initialState, action) => {
   let newPost = {id: getRandomArbitrary(1, 10000), text: state.postValue, time: getCurrentTime().slice(0, -3)};
   switch (action.type) {
-    case UPDATE_NEW_POST:
-      state.postValue = action.newPost;
-      return state;
-    case ADD_POST:
-      state.posts.push(newPost);
-      state.postValue = "";
-      return state;
+    case UPDATE_NEW_POST: {
+      let stateCopy = {...state};
+      stateCopy.postValue = action.newPost;
+      return stateCopy;
+    }
+    case ADD_POST: {
+      let stateCopy = {...state};
+      stateCopy.posts = [...state.posts];
+      stateCopy.posts.push(newPost);
+      stateCopy.postValue = "";
+      return stateCopy;
+    }
     default:
       return state;
   }
