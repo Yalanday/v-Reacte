@@ -9,17 +9,18 @@ const myPostsReducer = (state = initialState, action) => {
   let newPost = {id: getRandomArbitrary(1, 10000), text: state.postValue, time: getCurrentTime().slice(0, -3)};
   switch (action.type) {
     case UPDATE_NEW_POST: {
-      let stateCopy = {...state};
-      stateCopy.postValue = action.newPost;
-      return stateCopy;
+      return {
+        ...state,
+        postValue: action.newPost
+      };
     }
-    case ADD_POST: {
-      let stateCopy = {...state};
-      stateCopy.posts = [...state.posts];
-      stateCopy.posts.push(newPost);
-      stateCopy.postValue = "";
-      return stateCopy;
-    }
+    case ADD_POST:
+      return {
+        ...state,
+        posts: [...state.posts, newPost],
+        postValue: ''
+      };
+
     default:
       return state;
   }

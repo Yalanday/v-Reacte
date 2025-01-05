@@ -167,7 +167,13 @@ export const dataBase = {
       {id: 2, text: "Пост 2", time: "09:25"},
     ],
     postValue: "",
-  }
+  },
+  // users: [
+  //   {id: 1, foto: "/src/img/opponents/haverbeke.jpg", followed: true, fullName: 'Евгений', status: 'ZeusOne', location: {city: 'Самара', country: 'Россия'}},
+  //   {id: 2, foto: "/src/img/opponents/haverbeke.jpg", followed: true, fullName: 'Анатолий', status: 'От печали и от боли', location: {city: 'Ижевск', country: 'Россия'}},
+  //   {id: 3, foto: "/src/img/opponents/haverbeke.jpg", followed: false, fullName: 'Дихтер', status: 'Heil Dichter', location: {city: 'Berlin', country: 'Germany'}},
+  //   {id: 4, foto: "/src/img/opponents/haverbeke.jpg", followed: true, fullName: 'Трамп', status: 'CocaCola', location: {city: 'New York', country: 'USA'}},
+  // ]
 };
 
 

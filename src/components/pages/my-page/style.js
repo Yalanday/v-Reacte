@@ -11,9 +11,6 @@ export const StyledMyPage = styled.div`
     background-image: url(${hacker});
     background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     height: 100%;
     justify-content: center;
 `;

@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import RoutesMyComponents from "../pages/my-components/routesMyComponents";
 import MyPageContainer from "../pages/my-page/myPageContainer.jsx";
 import DialogsContainer from "../pages/dialogs/dialogsContaider.jsx";
+import UsersContainer from "../pages/users/users-container.jsx";
 
 function App({dispatch}) {
 
@@ -27,6 +28,7 @@ function App({dispatch}) {
               <Route exact path='/dialogs/*' element={<DialogsContainer/>}/>
               <Route exact path='/my-components-previev/*' element={<MyComponents/>}/>
               <Route exact path='/my-components/*' element={<RoutesMyComponents/>}/>
+              <Route path='/users' element={<UsersContainer/>}/>
             </Routes>
           </StyledMain>
           <StyledFooter>ТУТ БУДЕТ МОДНЫЙ ФУТЕР</StyledFooter>

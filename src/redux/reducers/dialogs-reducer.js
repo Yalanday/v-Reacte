@@ -10,12 +10,15 @@ const dialogsReducer = (state = initialState, action) => {
   let cutter = window.location.pathname.slice(window.location.pathname.lastIndexOf("/") + 1);
 
   switch (action.type) {
-    case UPDATE_NEW_MESSAGE: {
-      let stateCopy = {...state};
-      stateCopy.dialogs = {...state.dialogs};
-      stateCopy.dialogs.messageValue = action.newMessage;
-      return stateCopy;
-    }
+    case UPDATE_NEW_MESSAGE:
+      return {
+        ...state,
+        dialogs: {
+          ...state.dialogs,
+          messageValue: action.newMessage
+        },
+      };
+
     case ADD_MESSAGE: {
       let stateCopy = {...state};
       stateCopy.dialogs = {...state.dialogs};
